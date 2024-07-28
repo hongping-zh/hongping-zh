@@ -1,4 +1,4 @@
-# Neural-PDE-Solver
+# PDE-Solver
 
 PDE: Partial Differentiable Equation
 
