@@ -14,7 +14,7 @@
 
 | Project | Description | Status |
 |---------|-------------|--------|
-| [**EcoCompute AI**](https://github.com/hongping-zh/https-github.com-hongping-zh) | CI/CD Gatekeeper for GPU Cost & Carbon Prediction | 🟢 Public Beta |
+| [**EcoCompute AI**](https://github.com/hongping-zh/ecocompute-ai) | CI/CD Gatekeeper for GPU Cost & Carbon Prediction | 🟢 Public Beta |
 
 ---
 
