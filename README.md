@@ -39,6 +39,14 @@ We benchmarked **8 models on NVIDIA RTX 5090 (Blackwell)** with NVML 10 Hz power
 | **Status** | 🟢 Public Beta |
 | **Stack** | React + TypeScript + Tailwind + Recharts |
 
+<p align="center">
+  <a href="https://hongping-zh.github.io/ecocompute-dynamic-eval/?view=monitor">
+    <img src="https://raw.githubusercontent.com/hongping-zh/hongping-zh/main/demo.gif" alt="EcoCompute Dynamic Eval - Live System Monitor" width="700" />
+  </a>
+  <br/>
+  <sub>👆 Click to try the Live System Monitor</sub>
+</p>
+
 ### Core Features
 - **Dynamic Leaderboard** with RTX 5090 verified benchmarks & provenance badges
 - **Emissions Calculator** with 15+ templates, sensitivity analysis & break-even charts
@@ -79,5 +87,5 @@ We benchmarked **8 models on NVIDIA RTX 5090 (Blackwell)** with NVML 10 Hz power
 ---
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=hongping-zh&show_icons=true&theme=radical" alt="GitHub Stats" />
+  <i>🌍 Making AI development more sustainable, one model at a time.</i>
 </p>
