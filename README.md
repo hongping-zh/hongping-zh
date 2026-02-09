@@ -61,10 +61,10 @@ We benchmarked **8 models on NVIDIA RTX 5090 (Blackwell)** with NVML 10 Hz power
 
 | Phase | Timeline | Milestone |
 |-------|----------|-----------|
-| **Phase 1** | ✅ Now | Open dashboard with RTX 5090 benchmarks, calculator, templates |
-| **Phase 2** | Q2 2026 | VS Code Extension for real-time energy linting |
-| **Phase 3** | Q3 2026 | REST API + continuous benchmark pipeline |
-| **Phase 4** | Q4 2026 | ML-driven model routing engine for enterprise |
+| **Phase 1** | ✅ Done | Open dashboard with RTX 5090 benchmarks (4 models × FP16/NF4) |
+| **Phase 2** | 🔄 Feb 2026 | Expand to **10+ models** on RTX 5090 — Llama 3.1, Mistral, Phi-3, Gemma 2, DeepSeek R1 + add INT8 |
+| **Phase 3** | Mar 2026 | Multi-GPU comparison (RTX 5090 vs A100 vs T4) + GPTQ validation |
+| **Phase 4** | Q2 2026 | Automated benchmark pipeline + REST API for open data access |
 
 ---
 
