@@ -1,9 +1,16 @@
 # 👋 Hi, I'm Hongping
 
-**Solo Founder of [EcoCompute AI](https://hongping-zh.github.io/ecocompute-dynamic-eval/) — the open-source decision engine for Sustainable AI Infrastructure.**
+**Solo Founder** | Building tools to make AI greener
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Try_Now-brightgreen?style=for-the-badge)](https://hongping-zh.github.io/ecocompute-dynamic-eval/)
-[![GitHub Stars](https://img.shields.io/github/stars/hongping-zh/ecocompute-dynamic-eval?style=for-the-badge&logo=github)](https://github.com/hongping-zh/ecocompute-dynamic-eval)
+> **🔥 Discovery**: Small models + 4-bit quantization = **40% MORE energy**
+
+**Before you deploy that LLM, you need to know**:
+- ❌ Qwen2-1.5B (NF4) uses **+29% energy** vs FP16
+- ✅ Qwen2-7B (NF4) saves **-11% energy** vs FP16
+- 💰 Choosing wrong quantization **wastes $50+/month** in electricity
+
+[![Live Demo](https://img.shields.io/badge/🚀_Try_Demo-Live-brightgreen?style=for-the-badge)](https://hongping-zh.github.io/ecocompute-dynamic-eval/)
+[![RTX 5090 Data](https://img.shields.io/badge/📊_RTX_5090-Verified-green?style=for-the-badge)](https://github.com/hongping-zh/ecocompute-ai)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://github.com/hongping-zh/ecocompute-dynamic-eval/blob/main/LICENSE)
 
 ---
@@ -68,11 +75,31 @@ We benchmarked **8 models on NVIDIA RTX 5090 (Blackwell)** with NVML 10 Hz power
 
 ---
 
-## 🤝 What I'm Looking For
+## 🤝 How You Can Help
 
-- **Design Partners** — AI teams willing to pilot EcoCompute in their CI/CD pipeline
-- **Open Source Contributors** — help expand benchmark coverage to more GPUs & models
-- **Sponsors & Grants** — to accelerate development of the VS Code extension and API layer
+### 🎯 For AI Teams
+**Pilot EcoCompute in your CI/CD pipeline**
+- Get early access to energy metrics before they're public
+- Influence product roadmap with your feedback
+- Free for design partners
+
+[📧 Email me](mailto:zhanghongping1982@gmail.com) to discuss
+
+### 🛠️ For Developers
+**Contribute benchmark data from your GPU**
+- We need: RTX 4090, A100, H100, RTX 3090
+- Takes 30 minutes to run, huge community impact
+- Your name in Contributors + README acknowledgment
+
+[📖 See contribution guide](https://github.com/hongping-zh/ecocompute-dynamic-eval/blob/main/CONTRIBUTING.md)
+
+### 💰 For Sponsors
+**Accelerate green AI development**
+- Fund VS Code extension development
+- Support API layer infrastructure
+- Enable more GPU benchmarks
+
+[❤️ Sponsor on GitHub](https://github.com/sponsors/hongping-zh)
 
 ---
 
