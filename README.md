@@ -26,7 +26,7 @@ Independent AI Researcher | Energy Efficiency & Sustainable Computing
 
 **Impact**: Prevents industry from drawing wrong conclusions about INT8 quantization. Provides actionable guidance for practitioners deploying quantized LLMs in production.
 
-**Status**: Preparing for arXiv submission. [bitsandbytes Issue filed](https://github.com/bitsandbytes-foundation/bitsandbytes/issues/1851).
+**Status**: Preparing for arXiv submission. bitsandbytes Issues filed: [#1851 (NF4)](https://github.com/bitsandbytes-foundation/bitsandbytes/issues/1851) | [#1867 (INT8 Energy)](https://github.com/bitsandbytes-foundation/bitsandbytes/issues/1867)
 
 ---
 
