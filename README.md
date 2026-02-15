@@ -8,22 +8,25 @@ Independent AI Researcher | Energy Efficiency & Sustainable Computing
 
 ### 🏆 Energy Efficiency of Quantized LLM Inference
 
-**[Paper (Draft)](https://github.com/hongping-zh/ecocompute-dynamic-eval) | [Dashboard](https://hongping-zh.github.io/ecocompute-dynamic-eval/) | [Metadata](https://github.com/hongping-zh/ecocompute-dynamic-eval/tree/main/metadata)**
+**[Paper (Draft)](https://github.com/hongping-zh/ecocompute-dynamic-eval) | [Dashboard](https://hongping-zh.github.io/ecocompute-dynamic-eval/) | [Batch Size Analysis](https://hongping-zh.github.io/ecocompute-dynamic-eval/?view=BATCH_SIZE) | [Metadata](https://github.com/hongping-zh/ecocompute-dynamic-eval/tree/main/metadata)**
 
-> **Breakthrough Finding**: Discovered that bitsandbytes INT8 increases energy by 17-33% due to mixed-precision decomposition. Causal diagnosis via ablation recovered **+79% throughput** and **−36% energy**, achieving **5.5% energy savings** vs FP16.
+> **Breakthrough Finding**: Discovered that bitsandbytes INT8 increases energy by 17-147% due to mixed-precision decomposition. Causal diagnosis via ablation recovered **+79-98% throughput** and **−35-41% energy** across consumer (RTX 4090D) and datacenter (A800) GPUs.
 
-> **Research Scope**: This work focuses on energy efficiency diagnosis. Accuracy assessment (perplexity, downstream tasks) is not yet complete. The default `threshold=6.0` preserves accuracy but incurs significant performance cost (122-147% energy increase on Ampere/Ada). Pure INT8 (`threshold=0.0`) shows major performance gains, but accuracy impact requires validation. Next steps: PPL and MMLU evaluation—contributions welcome!
+> **NEW — Batch Size Optimization**: A800 sweep (BS 1→64) shows **95.7% energy reduction** and **55.5× throughput scaling**. BS=1 wastes 55% GPU capacity. Interactive results: [**View Dashboard →**](https://hongping-zh.github.io/ecocompute-dynamic-eval/?view=BATCH_SIZE)
+
+> **Research Scope**: This work focuses on energy efficiency diagnosis. Accuracy assessment (perplexity, downstream tasks) is not yet complete. Pure INT8 (`threshold=0.0`) shows major performance gains, but accuracy impact requires validation. Next steps: PPL and MMLU evaluation—contributions welcome!
 
 **Key Contributions**:
 - 🎯 **Root cause identified**: Mixed-precision decomposition, not INT8 itself
-- 📊 **23 high-quality measurements** (CV < 2%) across RTX 5090 Blackwell & RTX 4090D Ada Lovelace
-- ✅ **Multi-model validation**: Consistent results across Yi-1.5-6B and Mistral-7B
+- 📊 **93+ measurements** (CV < 1-2%) across **3 GPU architectures**: RTX 5090 (Blackwell), RTX 4090D (Ada Lovelace), A800 (Ampere)
+- 📈 **Batch size scaling law**: 95.7% energy reduction (BS=1→64), validated on A800 with 70 measurements
+- ✅ **Cross-platform validation**: Consistent results across consumer & datacenter GPUs, multiple models
 - 🔓 **Full reproducibility**: Complete metadata with software versions, configs, and protocols
-- 🌐 **Open data**: All raw data, scripts, and provenance publicly available
+- 🌐 **Open data**: All raw data, scripts, interactive dashboard, and provenance publicly available
 
 **Impact**: Prevents industry from drawing wrong conclusions about INT8 quantization. Provides actionable guidance for practitioners deploying quantized LLMs in production.
 
-**Status**: Ready for submission to MLSys 2026 (estimated acceptance: 85-90%)
+**Status**: Preparing for arXiv submission. [bitsandbytes Issue filed](https://github.com/bitsandbytes-foundation/bitsandbytes/issues/1851).
 
 ---
 
@@ -35,7 +38,7 @@ All my benchmarks follow rigorous reproducibility standards:
 - ✅ **Statistical rigor** (n=10, CV < 2%, significance tests)
 - ✅ **Open data** with full provenance and reproducible scripts
 - ✅ **Causal analysis** via controlled experiments and ablations
-- ✅ **Cross-architecture validation** (Blackwell + Ada Lovelace)
+- ✅ **Cross-architecture validation** (Blackwell + Ada Lovelace + Ampere)
 
 📁 **[View Metadata Standards →](https://github.com/hongping-zh/ecocompute-dynamic-eval/tree/main/metadata)**
 
@@ -54,16 +57,16 @@ All my benchmarks follow rigorous reproducibility standards:
 ## 📈 Current Projects
 
 ### 🌱 EcoCompute Dynamic Eval
-Interactive dashboard for comparing AI models by accuracy, cost, and carbon footprint. Features RTX 5090 benchmarks revealing that 4-bit quantization wastes energy on small models.
+Interactive dashboard for comparing AI models by accuracy, cost, and carbon footprint. Features a **[Batch Size Analysis page](https://hongping-zh.github.io/ecocompute-dynamic-eval/?view=BATCH_SIZE)** with interactive charts and cost calculator.
 
-**Tech**: TypeScript, React, TailwindCSS, GitHub Pages  
-**Data**: 23 measurements, 8 models, 2 GPU architectures
+**Tech**: TypeScript, React, Recharts, TailwindCSS, GitHub Pages  
+**Data**: 93+ measurements, 8 models, 3 GPU architectures (RTX 5090, RTX 4090D, A800)
 
 ### 🔋 Quantization Energy Research
-Systematic study of quantization energy efficiency on modern GPUs. Discovered two paradoxes (NF4 and bitsandbytes INT8) and provided causal diagnosis via ablation experiments.
+Systematic study of quantization energy efficiency on modern GPUs. Discovered two paradoxes (NF4 and bitsandbytes INT8) and provided causal diagnosis via ablation. Latest: **batch size sweep reveals 95.7% energy reduction** potential.
 
 **Tech**: Python, PyTorch, NVML, bitsandbytes  
-**Impact**: Prevents ~30% energy waste in production LLM deployments
+**Impact**: Prevents ~30-96% energy waste in production LLM deployments
 
 ---
 
