@@ -92,7 +92,11 @@ I believe in **open science** and **reproducible research**. Every benchmark I p
 
 ## 📊 GitHub Stats
 
-![Hongping's GitHub stats](https://github-readme-stats.vercel.app/api?username=hongping-zh&show_icons=true&theme=default)
+[![Hongping's GitHub stats](https://github-readme-stats.vercel.app/api?username=hongping-zh&show_icons=true&theme=default&cache_seconds=1800)](https://github.com/hongping-zh)
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=hongping-zh&layout=compact&theme=default&cache_seconds=1800)](https://github.com/hongping-zh)
+
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=hongping-zh&theme=default)](https://github.com/hongping-zh)
 
 ---
 
