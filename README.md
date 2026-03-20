@@ -1,7 +1,20 @@
 # 👋 Hi, I'm Hongping Zhang
 
 Independent AI Researcher | Energy Efficiency & Sustainable Computing
+## 🚀 Core Assets
 
+| Asset | Type | Impact | Link |
+|-------|------|--------|------|
+| **🤗 HuggingFace Optimum Integration** | Official Documentation | Trusted by thousands of HF developers | [View Docs →](https://huggingface.co/docs/optimum/concept_guides/quantization) |
+| **📊 Complete Energy Dataset** | Research Benchmark | 113+ configurations, 5 precision methods | [Explore Data →](https://huggingface.co/datasets/hongpingzhang/ecocompute-energy-efficiency) |
+| **🦞 EcoCompute AI Assistant** | Interactive Tool | Conversational energy advisor on ClawHub | [Try EcoCompute →](https://clawhub.ai/hongping-zh/ecocompute) |
+
+### Key Discoveries
+- 🔥 **FP8 Paradox**: +701% energy overhead on RTX 5090 (torchao confirmed)
+- ⚡ **Small-Model Paradox**: +25-56% energy penalty for NF4 <3B models  
+- 📈 **Batch Size Impact**: 95.7% energy reduction (BS=1→64) on A800
+
+---
 ---
 
 ## 🔬 Research Highlights
