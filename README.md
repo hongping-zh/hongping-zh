@@ -1,116 +1,91 @@
 # 👋 Hi, I'm Hongping Zhang
 
 Independent AI Researcher | Energy Efficiency & Sustainable Computing
-## 🚀 Core Assets
+
+---
+
+## 🎯 Core Assets
 
 | Asset | Type | Impact | Link |
 |-------|------|--------|------|
-| **🤗 HuggingFace Optimum Integration** | Official Documentation | Trusted by thousands of HF developers | [View Docs →](https://huggingface.co/docs/optimum/concept_guides/quantization) |
-| **📊 Complete Energy Dataset** | Research Benchmark | 113+ configurations, 5 precision methods | [Explore Data →](https://huggingface.co/datasets/hongpingzhang/ecocompute-energy-efficiency) |
-| **🦞 EcoCompute AI Assistant** | Interactive Tool | Conversational energy advisor on ClawHub | [Try EcoCompute →](https://clawhub.ai/hongping-zh/ecocompute) |
-
-### Key Discoveries
-- 🔥 **FP8 Paradox**: +701% energy overhead on RTX 5090 (torchao confirmed)
-- ⚡ **Small-Model Paradox**: +25-56% energy penalty for NF4 <3B models  
-- 📈 **Batch Size Impact**: 95.7% energy reduction (BS=1→64) on A800
-
----
----
-
-## 🔬 Research Highlights
-
-### 🏆 Energy Efficiency of Quantized LLM Inference
-
-**[Paper (Draft)](https://github.com/hongping-zh/ecocompute-dynamic-eval) | [Dashboard](https://hongping-zh.github.io/ecocompute-dynamic-eval/) | [Batch Size Analysis](https://hongping-zh.github.io/ecocompute-dynamic-eval/?view=BATCH_SIZE) | [Metadata](https://github.com/hongping-zh/ecocompute-dynamic-eval/tree/main/metadata)**
-
-> **Breakthrough Finding**: Discovered that bitsandbytes INT8 increases energy by 17-147% due to mixed-precision decomposition. Causal diagnosis via ablation recovered **+79-98% throughput** and **−35-41% energy** across consumer (RTX 4090D) and datacenter (A800) GPUs.
-
-> **NEW — Batch Size Optimization**: A800 sweep (BS 1→64) shows **95.7% energy reduction** and **55.5× throughput scaling**. BS=1 wastes 55% GPU capacity. Interactive results: [**View Dashboard →**](https://hongping-zh.github.io/ecocompute-dynamic-eval/?view=BATCH_SIZE)
-
-> **Research Scope**: This work focuses on energy efficiency diagnosis. Accuracy assessment (perplexity, downstream tasks) is not yet complete. Pure INT8 (`threshold=0.0`) shows major performance gains, but accuracy impact requires validation. Next steps: PPL and MMLU evaluation—contributions welcome!
-
-**Key Contributions**:
-- 🎯 **Root cause identified**: Mixed-precision decomposition, not INT8 itself
-- 📊 **93+ measurements** (CV < 1-2%) across **3 GPU architectures**: RTX 5090 (Blackwell), RTX 4090D (Ada Lovelace), A800 (Ampere)
-- 📈 **Batch size scaling law**: 95.7% energy reduction (BS=1→64), validated on A800 with 70 measurements
-- ✅ **Cross-platform validation**: Consistent results across consumer & datacenter GPUs, multiple models
-- 🔓 **Full reproducibility**: Complete metadata with software versions, configs, and protocols
-- 🌐 **Open data**: All raw data, scripts, interactive dashboard, and provenance publicly available
-
-**Impact**: Prevents industry from drawing wrong conclusions about INT8 quantization. Provides actionable guidance for practitioners deploying quantized LLMs in production.
-
-**Status**: Preparing for arXiv submission. bitsandbytes Issues filed: [#1851 (NF4)](https://github.com/bitsandbytes-foundation/bitsandbytes/issues/1851) | [#1867 (INT8 Energy)](https://github.com/bitsandbytes-foundation/bitsandbytes/issues/1867)
+| 🤗 **HuggingFace Optimum Integration** | Official Documentation | Trusted by thousands of HF developers | [View Docs →](https://huggingface.co/docs/optimum/) |
+| 📊 **Complete Energy Dataset** | Research Benchmark | 360+ configurations, 5 precision methods | [Explore Data →](https://github.com/ecocompute-ai/quantization-energy-crossover) |
+| 🦾 **EcoCompute AI Assistant** | Interactive Tool | Conversational energy advisor on ClawHub | [Try EcoCompute →](https://clawhub.ai/hongping-zh/ecocompute) |
+| 🏛️ **MLCommons Power WG Discussion** | Industry Recognition | Invited to contribute to MLPerf power measurement standards | [View Discussion →](https://github.com/mlcommons/inference/issues/2558) |
 
 ---
 
-## 📊 Research Standards
+## 🔬 Core Discovery
 
-All my benchmarks follow rigorous reproducibility standards:
+> **Quantization only saves energy for models > 3.2–4.6B parameters.**  
+> For smaller models, FP16 is actually more energy-efficient.  
+> — Measured on RTX 4090D, RTX 5090, A800 with NVML power sampling.
 
-- ✅ **Complete metadata** with hardware specs, software versions, and model commits
-- ✅ **Statistical rigor** (n=10, CV < 2%, significance tests)
-- ✅ **Open data** with full provenance and reproducible scripts
-- ✅ **Causal analysis** via controlled experiments and ablations
-- ✅ **Cross-architecture validation** (Blackwell + Ada Lovelace + Ampere)
+This finding challenges the default assumption that "quantize everything = green." Our benchmark data is open and reproducible.
 
-📁 **[View Metadata Standards →](https://github.com/hongping-zh/ecocompute-dynamic-eval/tree/main/metadata)**
-
----
-
-## 🛠️ Tech Stack
-
-**Languages**: Python, TypeScript, Bash  
-**ML/AI**: PyTorch, Transformers, bitsandbytes, CUDA  
-**Data**: Pandas, NumPy, SciPy, Matplotlib  
-**Tools**: Git, Docker, Jupyter, VS Code  
-**Cloud**: AutoDL, AWS (occasional)
+**Key Findings:**
+- **NF4 crossover**: 3.2–3.9B parameters (hardware-dependent)
+- **INT8 crossover**: 4.0–4.6B parameters (hardware-dependent)
+- **Below threshold**: Quantization adds 25–55% energy overhead
+- **Above threshold**: Quantization saves 15–23% energy
 
 ---
 
-## 📈 Current Projects
+## 🚀 Try It Now
 
-### 🌱 EcoCompute Dynamic Eval
-Interactive dashboard for comparing AI models by accuracy, cost, and carbon footprint. Features a **[Batch Size Analysis page](https://hongping-zh.github.io/ecocompute-dynamic-eval/?view=BATCH_SIZE)** with interactive charts and cost calculator.
-
-**Tech**: TypeScript, React, Recharts, TailwindCSS, GitHub Pages  
-**Data**: 93+ measurements, 8 models, 3 GPU architectures (RTX 5090, RTX 4090D, A800)
-
-### 🔋 Quantization Energy Research
-Systematic study of quantization energy efficiency on modern GPUs. Discovered two paradoxes (NF4 and bitsandbytes INT8) and provided causal diagnosis via ablation. Latest: **batch size sweep reveals 95.7% energy reduction** potential.
-
-**Tech**: Python, PyTorch, NVML, bitsandbytes  
-**Impact**: Prevents ~30-96% energy waste in production LLM deployments
+| | |
+|---|---|
+| **🌐 Live Demo** | [**ecocompute-dynamic-eval →**](https://hongping-zh.github.io/ecocompute-dynamic-eval/) |
+| **📊 What it does** | Compare AI models by **Accuracy × Cost × Carbon** in one dashboard |
+| **⚡ Data source** | Real GPU benchmarks — PyTorch 2.10 + CUDA 12.8, 10 runs per config |
 
 ---
 
-## 📫 Contact
+## 📈 Recognition & Impact
 
-- **Email**: zhanghongping1982@gmail.com
-- **GitHub**: [@hongping-zh](https://github.com/hongping-zh)
-- **Dashboard**: [ecocompute-dynamic-eval](https://hongping-zh.github.io/ecocompute-dynamic-eval/)
-
----
-
-## 💡 Philosophy
-
-I believe in **open science** and **reproducible research**. Every benchmark I publish includes:
-- Complete metadata (hardware, software, models)
-- Raw data and analysis scripts
-- Reproduction commands
-- Known issues and resolutions
-
-**Goal**: Make AI research more transparent, reproducible, and energy-efficient.
+| Achievement | Details |
+|-------------|---------|
+| **🤗 HuggingFace Official** | Quantization energy findings integrated into Optimum documentation |
+| **🏛️ MLCommons Invited** | Contributing to MLPerf Power Working Group on quantization energy metrics |
+| **📊 Open Dataset** | 360 configurations, 270 analyzed + 90 FP8 reserved for future work |
+| **🌍 Zenodo Archive** | Permanent DOI: [10.5281/zenodo.18900289](https://zenodo.org/records/18900289) |
+| **📝 Research Paper** | "When Does Quantization Save Energy?" — arXiv submission in progress |
 
 ---
 
-## 📊 GitHub Stats
+## 🎯 2026 Roadmap
 
-[![Hongping's GitHub stats](https://github-readme-stats.vercel.app/api?username=hongping-zh&show_icons=true&theme=default&cache_seconds=1800)](https://github.com/hongping-zh)
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=hongping-zh&layout=compact&theme=default&cache_seconds=1800)](https://github.com/hongping-zh)
-
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=hongping-zh&theme=default)](https://github.com/hongping-zh)
+- ✅ **HuggingFace Integration** — Official documentation published
+- ✅ **MLCommons Engagement** — Invited to Power Working Group
+- 🔄 **arXiv Publication** — Seeking endorsement for cs.LG submission
+- 🛡️ **VS Code Extension** — Real-time energy linting before code merges
+- 🤝 **Enterprise Pilots** — Seeking design partners for carbon-aware CI/CD
 
 ---
 
-*"Measure, don't assume. Reproduce, don't trust. Share, don't hoard."*
+## 💚 How You Can Help
+
+I'm looking for **design partners**, **early adopters**, **arXiv endorsers**, and **grant sponsors** to take EcoCompute from research to production.
+
+| Action | Link |
+|--------|------|
+| ⭐ **Star the repo** | [quantization-energy-crossover](https://github.com/ecocompute-ai/quantization-energy-crossover) |
+| 🌐 **Try the demo** | [Live Dashboard →](https://hongping-zh.github.io/ecocompute-dynamic-eval/) |
+| 📧 **arXiv Endorsement** | [Email me →](mailto:hongping.zhang@ecocompute-ai.org?subject=arXiv%20Endorsement) |
+| 🤝 **Become a design partner** | [Email me →](mailto:zhanghongping1982@gmail.com?subject=EcoCompute%20Design%20Partner) |
+| 💼 **Invest / Grant** | [Email me →](mailto:zhanghongping1982@gmail.com?subject=EcoCompute%20Investment%20Inquiry) |
+
+---
+
+## 📚 Key Publications & Resources
+
+- **Research Paper**: "When Does Quantization Save Energy? Empirical Analysis of the Energy-Efficiency Crossover Effect Across GPU Generations"
+- **Dataset**: [GitHub](https://github.com/ecocompute-ai/quantization-energy-crossover) | [Zenodo DOI](https://zenodo.org/records/18900289)
+- **HuggingFace Docs**: [Optimum Energy Efficiency Guide](https://huggingface.co/docs/optimum/)
+- **MLCommons Discussion**: [Issue #2558](https://github.com/mlcommons/inference/issues/2558)
+
+---
+
+<p align="center">
+  <i>🌍 Making AI development more sustainable, one model at a time.</i>
+</p>
