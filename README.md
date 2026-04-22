@@ -35,7 +35,7 @@ This finding challenges the default assumption that "quantize everything = green
 
 | | |
 |---|---|
-| **🌐 Live Demo** | [**ecocompute-dynamic-eval →**](https://hongping-zh.github.io/ecocompute-dynamic-eval/) |
+| **🌐 Live Demo** | [**EcoCompute Dashboard →**](https://hongping-zh.github.io/) |
 | **📊 What it does** | Compare AI models by **Accuracy × Cost × Carbon** in one dashboard |
 | **⚡ Data source** | Real GPU benchmarks — PyTorch 2.10 + CUDA 12.8, 10 runs per config |
 
@@ -70,7 +70,7 @@ I'm looking for **design partners**, **early adopters**, **arXiv endorsers**, an
 | Action | Link |
 |--------|------|
 | ⭐ **Star the repo** | [quantization-energy-crossover](https://github.com/ecocompute-ai/quantization-energy-crossover) |
-| 🌐 **Try the demo** | [Live Dashboard →](https://hongping-zh.github.io/ecocompute-dynamic-eval/) |
+| 🌐 **Try the demo** | [Live Dashboard →](https://hongping-zh.github.io/) |
 | 📧 **arXiv Endorsement** | [Email me →](mailto:hongping.zhang@ecocompute-ai.org?subject=arXiv%20Endorsement) |
 | 🤝 **Become a design partner** | [Email me →](mailto:zhanghongping1982@gmail.com?subject=EcoCompute%20Design%20Partner) |
 | 💼 **Invest / Grant** | [Email me →](mailto:zhanghongping1982@gmail.com?subject=EcoCompute%20Investment%20Inquiry) |
