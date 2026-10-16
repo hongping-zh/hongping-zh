@@ -8,8 +8,8 @@ Independent AI Researcher | Energy Efficiency & Sustainable Computing
 
 | Asset | Type | Impact | Link |
 |-------|------|--------|------|
-| 🤗 **HuggingFace Optimum Integration** | Official Documentation | Trusted by thousands of HF developers | [View Docs →](https://huggingface.co/docs/optimum/) |
-| 📊 **Complete Energy Dataset** | Research Benchmark | 360+ configurations, 5 precision methods | [Explore Data →](https://github.com/ecocompute-ai/quantization-energy-crossover) |
+| 🤗 **HuggingFace Optimum Integration** | Official Documentation | Findings integrated into official quantization guide (dataset v1.1.0) | [View Docs →](https://huggingface.co/docs/optimum/) |
+| 📊 **Complete Energy Dataset** | Research Benchmark | 360+ configurations, 5 precision methods | [Explore Data →](https://github.com/hongping-zh/ecocompute-ai) |
 | 🦾 **EcoCompute AI Assistant** | Interactive Tool | Conversational energy advisor on ClawHub | [Try EcoCompute →](https://clawhub.ai/hongping-zh/ecocompute) |
 | 🏛️ **MLCommons Power WG Discussion** | Industry Recognition | Invited to contribute to MLPerf power measurement standards | [View Discussion →](https://github.com/mlcommons/inference/issues/2558) |
 
@@ -17,17 +17,17 @@ Independent AI Researcher | Energy Efficiency & Sustainable Computing
 
 ## 🔬 Core Discovery
 
-> **Quantization only saves energy for models > 3.2–4.6B parameters.**  
-> For smaller models, FP16 is actually more energy-efficient.  
+> **NF4 crossover ranges from ~1.8B (Blackwell, current stack) to ~3.7B (Ada).**  
+> Below the crossover, quantization costs more energy; above it, quantization saves. The crossover belongs to a card+stack combination, not to an architecture.  
 > — Measured on RTX 4090D, RTX 5090, A800 with NVML power sampling.
 
 This finding challenges the default assumption that "quantize everything = green." Our benchmark data is open and reproducible.
 
 **Key Findings:**
-- **NF4 crossover**: 3.2–3.9B parameters (hardware-dependent)
-- **INT8 crossover**: 4.0–4.6B parameters (hardware-dependent)
-- **Below threshold**: Quantization adds 25–55% energy overhead
-- **Above threshold**: Quantization saves 15–23% energy
+- **NF4 crossover**: ~2.1B (Turing T4) → ~3.7B (Ada 4090) → ~4.8B (Blackwell 5090 v1.1.0); ~1.8B on 5090 with a newer stack
+- **INT8 (`load_in_8bit=True`)**: default increases energy +17–147% vs FP16; set `llm_int8_threshold=0.0` to recover +79% throughput and −36% energy
+- **Below crossover**: NF4 adds 11–29% energy (Blackwell, small models)
+- **Above crossover**: NF4 saves 8–35% energy (Ada, models ≥6B)
 
 ---
 
@@ -47,8 +47,8 @@ This finding challenges the default assumption that "quantize everything = green
 |-------------|---------|
 | **🤗 HuggingFace Official** | Quantization energy findings integrated into Optimum documentation |
 | **🏛️ MLCommons Invited** | Contributing to MLPerf Power Working Group on quantization energy metrics |
-| **📊 Open Dataset** | 360 configurations, 270 analyzed + 90 FP8 reserved for future work |
-| **🌍 Zenodo Archive** | Permanent DOI: [10.5281/zenodo.18900289](https://zenodo.org/records/18900289) |
+| **📊 Open Dataset** | 360+ configurations across 4 GPU architectures (Turing, Ampere, Ada, Blackwell), CV < 2% |
+| **🌍 Zenodo Archive** | Permanent DOI: [10.5281/zenodo.19647290](https://zenodo.org/records/19647290) (dataset v1.1.0) + [10.5281/zenodo.22037483](https://zenodo.org/records/22037483) (RTX 4090 deep dive) |
 | **📝 Research Paper** | "When Does Quantization Save Energy?" — arXiv submission in progress |
 
 ---
@@ -69,9 +69,9 @@ I'm looking for **design partners**, **early adopters**, **arXiv endorsers**, an
 
 | Action | Link |
 |--------|------|
-| ⭐ **Star the repo** | [quantization-energy-crossover](https://github.com/ecocompute-ai/quantization-energy-crossover) |
+| ⭐ **Star the repo** | [ecocompute-mlcube](https://github.com/hongping-zh/ecocompute-mlcube) |
 | 🌐 **Try the demo** | [Live Dashboard →](https://hongping-zh.github.io/) |
-| 📧 **arXiv Endorsement** | [Email me →](mailto:hongping.zhang@ecocompute-ai.org?subject=arXiv%20Endorsement) |
+| 📧 **arXiv Endorsement** | [Email me →](mailto:zhanghongping1982@gmail.com?subject=arXiv%20Endorsement) |
 | 🤝 **Become a design partner** | [Email me →](mailto:zhanghongping1982@gmail.com?subject=EcoCompute%20Design%20Partner) |
 | 💼 **Invest / Grant** | [Email me →](mailto:zhanghongping1982@gmail.com?subject=EcoCompute%20Investment%20Inquiry) |
 
@@ -80,7 +80,7 @@ I'm looking for **design partners**, **early adopters**, **arXiv endorsers**, an
 ## 📚 Key Publications & Resources
 
 - **Research Paper**: "When Does Quantization Save Energy? Empirical Analysis of the Energy-Efficiency Crossover Effect Across GPU Generations"
-- **Dataset**: [GitHub](https://github.com/ecocompute-ai/quantization-energy-crossover) | [Zenodo DOI](https://zenodo.org/records/18900289)
+- **Dataset**: [GitHub](https://github.com/hongping-zh/ecocompute-ai) | [Zenodo DOI](https://zenodo.org/records/19647290)
 - **HuggingFace Docs**: [Optimum Energy Efficiency Guide](https://huggingface.co/docs/optimum/)
 - **MLCommons Discussion**: [Issue #2558](https://github.com/mlcommons/inference/issues/2558)
 
