@@ -9,7 +9,7 @@ Independent AI Researcher | Energy Efficiency & Sustainable Computing
 | Asset | Type | Impact | Link |
 |-------|------|--------|------|
 | 🤗 **HuggingFace Optimum Integration** | Official Documentation | Findings integrated into official quantization guide (dataset v1.1.0) | [View Docs →](https://huggingface.co/docs/optimum/) |
-| 📊 **Complete Energy Dataset** | Research Benchmark | 360+ configurations, 5 precision methods | [Explore Data →](https://github.com/hongping-zh/ecocompute-ai) |
+| 📊 **Complete Energy Dataset** | Research Benchmark | 360+ configurations, 5 precision methods | [Explore Data →](https://github.com/hongping-zh/ecocompute-mlcube) |
 | 🦾 **EcoCompute AI Assistant** | Interactive Tool | Conversational energy advisor on ClawHub | [Try EcoCompute →](https://clawhub.ai/hongping-zh/ecocompute) |
 | 🏛️ **MLCommons Power WG Discussion** | Industry Recognition | Invited to contribute to MLPerf power measurement standards | [View Discussion →](https://github.com/mlcommons/inference/issues/2558) |
 
@@ -28,6 +28,11 @@ This finding challenges the default assumption that "quantize everything = green
 - **INT8 (`load_in_8bit=True`)**: default increases energy +17–147% vs FP16; set `llm_int8_threshold=0.0` to recover +79% throughput and −36% energy
 - **Below crossover**: NF4 adds 11–29% energy (Blackwell, small models)
 - **Above crossover**: NF4 saves 8–35% energy (Ada, models ≥6B)
+
+**Recent improvements (2026-10):**
+- **Thermal block** (PR #25): GPU temperature at measurement start/end/peak via NVML, with honest `basis: "measured"` or `basis: "unavailable"` for AMD/dry-run paths
+- **context_length comparability**: Qualified submissions (`context_length = 2048`) are directly comparable to v1.1.0 baseline; exploratory submissions (`context_length ≠ 2048`) form a separate comparability class
+- **AMD GPU support** (PR #20): ROCm hosts get a clear fallback (`basis: "unavailable"`) instead of an opaque NVML error — no cross-vendor extrapolation
 
 ---
 
@@ -50,6 +55,12 @@ This finding challenges the default assumption that "quantize everything = green
 | **📊 Open Dataset** | 360+ configurations across 4 GPU architectures (Turing, Ampere, Ada, Blackwell), CV < 2% |
 | **🌍 Zenodo Archive** | Permanent DOI: [10.5281/zenodo.19647290](https://zenodo.org/records/19647290) (dataset v1.1.0) + [10.5281/zenodo.22037483](https://zenodo.org/records/22037483) (RTX 4090 deep dive) |
 | **📝 Research Paper** | "When Does Quantization Save Energy?" — arXiv submission in progress |
+
+## 🙏 Acknowledgments
+
+- **@gkgoing** — first independent replication (2026-08): TinyLlama-1.1B in NF4 on an RTX 3050 Ti Laptop. The perplexity matched our RTX 4090 measurement to four decimals; the energy number did not — and that contrast is the reason this project exists. [Submission →](https://github.com/hongping-zh/ecocompute-mlcube/issues/15)
+- **@amarjithkumar2007-wq** — AMD GPU (ROCm) detection and fallback (PR #20); context_length applied in measurement path (PR #22).
+- **@yesheng-oss** — backend contribution guide (PR #21): documents how to add llama.cpp, vLLM, or TensorRT-LLM as inference engines.
 
 ---
 
@@ -80,7 +91,7 @@ I'm looking for **design partners**, **early adopters**, **arXiv endorsers**, an
 ## 📚 Key Publications & Resources
 
 - **Research Paper**: "When Does Quantization Save Energy? Empirical Analysis of the Energy-Efficiency Crossover Effect Across GPU Generations"
-- **Dataset**: [GitHub](https://github.com/hongping-zh/ecocompute-ai) | [Zenodo DOI](https://zenodo.org/records/19647290)
+- **Dataset**: [GitHub](https://github.com/hongping-zh/ecocompute-mlcube) | [Zenodo DOI](https://zenodo.org/records/19647290)
 - **HuggingFace Docs**: [Optimum Energy Efficiency Guide](https://huggingface.co/docs/optimum/)
 - **MLCommons Discussion**: [Issue #2558](https://github.com/mlcommons/inference/issues/2558)
 
