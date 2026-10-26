@@ -28,7 +28,7 @@ This finding challenges the default assumption that "quantize everything = green
 |---|------|-------|
 | 1 | **Run the measurement container** — reproduce every number on your own GPU (MLCube, NVML, MLCommons-style energy reporting) | [**ecocompute-mlcube** →](https://github.com/hongping-zh/ecocompute-mlcube) |
 | 2 | **Use the web estimator** — compare precision choices for your GPU × model size, every answer states its basis and confidence | [**quantenergy.tech** →](https://quantenergy.tech) |
-| 3 | **Ask your AI assistant** — EcoCompute is in the official MCP Registry: `io.github.hongping-zh/ecocompute-estimator` (4 tools; Claude Desktop / Cursor setup in the [announcement post](https://quantenergy.tech/blog/make-your-ai-assistant-ask-about-energy-first)) | [MCP endpoint →](https://ecocompute-estimator.zhanghongping1982.workers.dev/mcp) |
+| 3 | **Ask your AI assistant** — EcoCompute is listed in the [official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=ecocompute-estimator) (`io.github.hongping-zh/ecocompute-estimator`, 4 tools; Claude Desktop / Cursor setup in the [announcement post](https://quantenergy.tech/blog/make-your-ai-assistant-ask-about-energy-first)) | [MCP endpoint →](https://ecocompute-estimator.zhanghongping1982.workers.dev/mcp) |
 
 *Also: an interactive [Accuracy × Cost × Carbon dashboard →](https://hongping-zh.github.io/), and a [GitHub Action →](https://github.com/hongping-zh/hongping-zh-ecocompute-action) that lints CI for LLM energy waste.*
 
