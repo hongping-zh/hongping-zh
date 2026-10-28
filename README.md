@@ -86,3 +86,6 @@ This finding challenges the default assumption that "quantize everything = green
 <p align="center">
   <i>🌍 Making AI development more sustainable, one measured number at a time.</i>
 </p>
+---
+
+**Trademarks**: MLCommons, MLPerf and MLCube are trademarks of MLCommons Association, used nominatively.
