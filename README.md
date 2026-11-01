@@ -85,6 +85,7 @@ This finding challenges the default assumption that "quantize everything = green
 
 - **Website & estimator**: [quantenergy.tech](https://quantenergy.tech) · [MCP registry listing](https://quantenergy.tech/blog/make-your-ai-assistant-ask-about-energy-first)
 - **Dataset**: [GitHub (container + replication)](https://github.com/hongping-zh/ecocompute-mlcube) | [HuggingFace card](https://huggingface.co/datasets/hongpingzhang/ecocompute-energy-efficiency) | [Zenodo DOI](https://doi.org/10.5281/zenodo.19647290)
+- **Tutorials (Chinese)**: [GPU 能耗测量入门 series →](https://cloud.tencent.com/developer/column/109571) — hands-on: from reading watts to a reproducible measurement protocol
 - **Paper**: "When Does Quantization Save Energy? Empirical Analysis of the Energy-Efficiency Crossover Effect Across GPU Generations" (arXiv in progress)
 
 ---
