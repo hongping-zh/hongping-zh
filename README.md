@@ -22,6 +22,12 @@ This finding challenges the default assumption that "quantize everything = green
 
 ---
 
+![The quantization energy crossover curve across 4 GPU architectures](https://raw.githubusercontent.com/hongping-zh/ecocompute-mlcube/main/assets/crossover_curve.png)
+
+*NF4 / INT8 / FP8 energy per token relative to FP16 at batch size 1. The crossover moves with model size, hardware and library version — measure before you claim. Data: [EcoCompute Benchmark Dataset v1.1.0](https://doi.org/10.5281/zenodo.19647290), reproduce it with [ecocompute-mlcube](https://github.com/hongping-zh/ecocompute-mlcube).*
+
+---
+
 ## 🚪 Three Ways In
 
 | # | What | Where |
