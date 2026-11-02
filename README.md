@@ -8,14 +8,14 @@ Independent AI Researcher | Energy Efficiency & Sustainable Computing
 
 ## 🔬 Core Discovery
 
-> **NF4 crossover ranges from ~1.8B (Blackwell, current stack) to ~3.7B (Ada).**
+> **NF4 crossover ranges from ~1.1–1.5B (Blackwell, current stack) to ~3.7B (Ada).**
 > Below the crossover, quantization costs more energy; above it, quantization saves. The crossover belongs to a card+stack combination, not to an architecture.
 > — Measured on RTX 4090D, RTX 5090, A800 with NVML power sampling.
 
 This finding challenges the default assumption that "quantize everything = green." All benchmark data is open and reproducible.
 
 **Key Findings:**
-- **NF4 crossover**: ~2.1B (Turing T4) → ~3.7B (Ada 4090) → ~4.8B (Blackwell 5090 v1.1.0); ~1.8B on 5090 with a newer stack
+- **NF4 crossover**: ~2.1B (Turing T4) → ~3.7B (Ada 4090) → ~4.8B (Blackwell 5090 v1.1.0); **1.1–1.5B on the same 5090** with a newer stack (bitsandbytes 0.50.2, cross-restart A/B sessions — [deep-dive record](https://doi.org/10.5281/zenodo.22855133))
 - **INT8 (`load_in_8bit=True`)**: default increases energy +17–147% vs FP16; set `llm_int8_threshold=0.0` to recover +79% throughput and −36% energy
 - **Below crossover**: NF4 adds 11–29% energy (Blackwell, small models)
 - **Above crossover**: NF4 saves 8–35% energy (Ada, models ≥6B)
@@ -46,10 +46,10 @@ This finding challenges the default assumption that "quantize everything = green
 |-------------|---------|
 | **🤗 HuggingFace Optimum** | Quantization energy findings cited in the official documentation ([optimum PR #2410](https://github.com/huggingface/optimum/pull/2410)) |
 | **🏛️ MLCommons** | Invited discussion on quantization energy metrics for MLPerf Inference ([inference #2558](https://github.com/mlcommons/inference/issues/2558)) |
-| **🔥 torchao maintainers** | Independently confirmed the RTX 5090 FP8 energy anomaly we reported ([ao #4094](https://github.com/pytorch/ao/issues/4094)) |
+| **🔥 torchao maintainers** | Independently confirmed the RTX 5090 FP8 energy anomaly we reported; we later reproduced it on **stable torchao 0.18**, with both FP8 code paths characterized (weight-only penalty rises with size, dynamic-activation falls) ([ao #4094](https://github.com/pytorch/ao/issues/4094)) |
 | **⬆️ Upstream contributions** | bitsandbytes PR #1882 · transformers PR #44407 |
 | **📊 Open dataset** | 360+ configurations across 4 GPU architectures (Turing, Ampere, Ada, Blackwell), CV < 2% |
-| **🌍 Zenodo (CC BY 4.0)** | [10.5281/zenodo.19647290](https://doi.org/10.5281/zenodo.19647290) (main, v1.1.0) · [10.5281/zenodo.22037483](https://doi.org/10.5281/zenodo.22037483) (RTX 4090 deep dive) |
+| **🌍 Zenodo (CC BY 4.0)** | [10.5281/zenodo.19647290](https://doi.org/10.5281/zenodo.19647290) (main, v1.1.0) · [10.5281/zenodo.22037483](https://doi.org/10.5281/zenodo.22037483) (RTX 4090 deep dive) · [10.5281/zenodo.22855133](https://doi.org/10.5281/zenodo.22855133) (RTX 5090 deep dive, 4 precisions × cross-restart) |
 
 ---
 
