@@ -19,6 +19,7 @@ This finding challenges the default assumption that "quantize everything = green
 - **INT8 (`load_in_8bit=True`)**: default increases energy +17–147% vs FP16; set `llm_int8_threshold=0.0` to recover +79% throughput and −36% energy
 - **Below crossover**: NF4 adds 11–29% energy (Blackwell, small models)
 - **Above crossover**: NF4 saves 8–35% energy (Ada, models ≥6B)
+- **Thermal state**: a steady-state card (53–54 °C) costs **+4.1%** more energy per token than the same config launched cold (37–39 °C) — energy claims without a thermal block are not comparable at the few-percent level ([cold vs steady dataset](https://doi.org/10.5281/zenodo.24046432))
 
 ---
 
@@ -49,14 +50,14 @@ This finding challenges the default assumption that "quantize everything = green
 | **🔥 torchao maintainers** | Independently confirmed the RTX 5090 FP8 energy anomaly we reported; we later reproduced it on **stable torchao 0.18**, with both FP8 code paths characterized (weight-only penalty rises with size, dynamic-activation falls) ([ao #4094](https://github.com/pytorch/ao/issues/4094)) |
 | **⬆️ Upstream contributions** | bitsandbytes PR #1882 · transformers PR #44407 |
 | **📊 Open dataset** | 360+ configurations across 4 GPU architectures (Turing, Ampere, Ada, Blackwell), CV < 2% |
-| **🌍 Zenodo (CC BY 4.0)** | [10.5281/zenodo.19647290](https://doi.org/10.5281/zenodo.19647290) (main, v1.1.0) · [10.5281/zenodo.22037483](https://doi.org/10.5281/zenodo.22037483) (RTX 4090 deep dive) · [10.5281/zenodo.22855133](https://doi.org/10.5281/zenodo.22855133) (RTX 5090 deep dive, 4 precisions × cross-restart) |
+| **🌍 Zenodo (CC BY 4.0)** | [10.5281/zenodo.19647290](https://doi.org/10.5281/zenodo.19647290) (main, v1.1.0) · [10.5281/zenodo.22037483](https://doi.org/10.5281/zenodo.22037483) (RTX 4090 deep dive) · [10.5281/zenodo.22855133](https://doi.org/10.5281/zenodo.22855133) (RTX 5090 deep dive, 4 precisions × cross-restart) · [10.5281/zenodo.24046432](https://doi.org/10.5281/zenodo.24046432) (cold vs steady thermal experiment) |
 
 ---
 
 ## 🙏 Acknowledgments
 
 - **@gkgoing** — first independent replication (2026-08): TinyLlama-1.1B in NF4 on an RTX 3050 Ti Laptop. The perplexity matched our RTX 4090 measurement to four decimals; the energy number did not — and that contrast is the reason this project exists. [Submission →](https://github.com/hongping-zh/ecocompute-mlcube/issues/15)
-- **@amarjithkumar2007-wq** — AMD GPU (ROCm) detection and fallback (PR #20); context_length applied in measurement path (PR #22); mock-tested ROCm power/temperature telemetry sampler (PR #31) — now co-author on the container's software record.
+- **@amarjithkumar2007-wq** — AMD GPU (ROCm) detection and fallback (PR #20); context_length applied in measurement path (PR #22); mock-tested ROCm power/temperature telemetry sampler (PR #31) — now co-author on the container's software record and the cold–steady dataset.
 - **@yesheng-oss** — backend contribution guide (PR #21): documents how to add llama.cpp, vLLM, or TensorRT-LLM as inference engines.
 
 ---
