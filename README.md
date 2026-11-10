@@ -57,6 +57,7 @@ This finding challenges the default assumption that "quantize everything = green
 ## 🙏 Acknowledgments
 
 - **@gkgoing** — first independent replication (2026-08): TinyLlama-1.1B in NF4 on an RTX 3050 Ti Laptop. The perplexity matched our RTX 4090 measurement to four decimals; the energy number did not — and that contrast is the reason this project exists. [Submission →](https://github.com/hongping-zh/ecocompute-mlcube/issues/15)
+- **@OliverYanghoo** — second independent replicator (2026-11): three NF4 runs on a Tesla V100S-PCIE-32GB (TinyLlama-1.1B −1.7%, Qwen2.5-3B −7.9%, Qwen2.5-7B −3.6%) — the project's first Volta-architecture data and the first whole architecture class filled by one contributor. All three sizes save energy, consistent with the bandwidth-starvation hypothesis. Disclosed deviation: torch 2.6.0+cu124 (the pinned CUDA-13 stack ships no sm70 kernel for Volta), plus a real bug report (`--gpu_arch auto` misses "V100S"). [#42](https://github.com/hongping-zh/ecocompute-mlcube/issues/42) [#43](https://github.com/hongping-zh/ecocompute-mlcube/issues/43) [#44](https://github.com/hongping-zh/ecocompute-mlcube/issues/44)
 - **@amarjithkumar2007-wq** — AMD GPU (ROCm) detection and fallback (PR #20); context_length applied in measurement path (PR #22); mock-tested ROCm power/temperature telemetry sampler (PR #31) — now co-author on the container's software record and the cold–steady dataset.
 - **@yesheng-oss** — backend contribution guide (PR #21): documents how to add llama.cpp, vLLM, or TensorRT-LLM as inference engines.
 
@@ -97,3 +98,4 @@ This finding challenges the default assumption that "quantize everything = green
 ---
 
 **Trademarks**: MLCommons, MLPerf and MLCube are trademarks of MLCommons Association, used nominatively.
+
