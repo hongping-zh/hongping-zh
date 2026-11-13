@@ -29,6 +29,12 @@ This finding challenges the default assumption that "quantize everything = green
 
 ---
 
+![The differential power bench, an interactive isometric diagram](https://raw.githubusercontent.com/hongping-zh/hongping-zh/main/assets/bench-light.png)
+
+*How those numbers are made: the **differential method** as an interactive isometric diagram - a two-arm power bench, spinning flywheel, chart recorder, live readouts (arrow keys switch arms, space swaps the measured condition). Open it: [quantenergy.tech/bench](https://quantenergy.tech/bench/) (dark and light themes, self-contained single file).*
+
+---
+
 ## 🚪 Three Ways In
 
 | # | What | Where |
